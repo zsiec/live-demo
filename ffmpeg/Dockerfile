@@ -83,11 +83,7 @@ RUN chmod +x /usr/local/bin/entrypoint.sh
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 
 CMD  ffmpeg -i $HLS_SOURCE \
-            -keyint_min $GOP_LENGTH \
             -c:v libx264 \
-            -c:a aac \
-            -map 0:v \
-            -map 1:a \
             -fflags +genpts \
             -movflags isml+frag_keyframe \
             -ism_offset $(($(date +%s)*10000000)) \

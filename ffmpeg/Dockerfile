@@ -83,7 +83,7 @@ RUN chmod +x /usr/local/bin/entrypoint.sh
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 
 CMD  ffmpeg -re -f lavfi -i $HLS_SOURCE \
-            -f lavfi
+            -f lavfi \
             -r $FRAME_RATE \
             -keyint_min $GOP_LENGTH \
             -c:v libx264 \
